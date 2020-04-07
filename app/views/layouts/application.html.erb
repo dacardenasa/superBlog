@@ -18,20 +18,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">SuperBlog<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="<%= posts_path %>">SuperBlog<span class="sr-only">(current)</span></a>
             </li>
           </ul>
           <% if signed_in? %>
             <ul class="nav navbar-nav">
-              <li><%= link_to "Crear Post", new_post_path %></li>
-              <li><%= link_to "Salir", destroy_user_session_path, method: :delete %></li>
+              <li class="mr-2"><%= link_to "Nuevo Post", new_post_path, class: "nav-link" %></li>
+              <li><%= link_to "Salir", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
             </ul>
           <% else %>
             <ul class="nav navbar-nav">
-              <li><%= link_to "Registrarse", new_user_registration_path %></li>
+              <li class="mr-2"><%= link_to "Registrarse", new_user_registration_path, class: "nav-link" %></li>
             </ul>
             <ul class="nav navbar-nav">
-              <li><%= link_to "Ingresar", new_user_session_path %></li>
+              <li><%= link_to "Ingresar", new_user_session_path, class:"nav-link" %></li>
             </ul>
           <% end %>
         </div>
