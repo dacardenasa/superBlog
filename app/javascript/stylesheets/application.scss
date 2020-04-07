@@ -1,1 +1,12 @@
 @import './bootstrap_custom.scss';
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  font-size: 20px;
+  line-height: normal;
+}

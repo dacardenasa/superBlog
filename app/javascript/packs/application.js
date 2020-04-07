@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 import '../stylesheets/application'
 import './bootstrap_custom.js'
+import "@fortawesome/fontawesome-free/css/all.css"
 
 
 
