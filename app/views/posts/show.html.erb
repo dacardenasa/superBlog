@@ -8,7 +8,7 @@
         <% @comments.each do |comment| %>
           <div class="card mb-2">
             <div class="card-header">
-              <%= comment.user.email %> hace alrededor de <%= time_ago_in_words(comment.created_at) %> 
+              <%= comment.user.email %> hace <%= time_ago_in_words(comment.created_at) %> 
             </div>
             <div class="card-body">
               <p class="card-text"><%= comment.comentario %></p>
