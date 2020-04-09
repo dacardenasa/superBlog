@@ -1,18 +1,22 @@
 <div class="container">
-  <div class="row justify-content-center mt-3">
+  <div class="row justify-content-center mt-4 mb-4">
     <div class="col-md-8 col-md-offset-2">
       <% @posts.each do |post| %>
-        <h1><%= link_to post.title, post , class: "pointer"%></h1>
-        <em class="text-secondary">Publicado por <%= post.user.email %> hace <%= time_ago_in_words(post.created_at) %></em>
-        <p class="mt-2"><%= markdown post.description.first(250) %></p>
-        <% if user_signed_in? %>
-          <% if post.user.id == current_user.id %>
-            <div>
-              <%= link_to "Editar <i class='fas fa-edit'></i>".html_safe, edit_post_path(post) %>
-              <%= link_to "Eliminar <i class='fas fa-trash'></i>".html_safe, post, method: :delete, data: { confirm: "¿Estás seguro de eliminar este Post?" } %>
-            </div>
-          <% end %>
-        <% end %>
+        <div class="post-container">
+          <div class="post">
+            <h1><%= link_to post.title, post , class: "pointer"%></h1>
+            <em class="text-secondary">Publicado por <%= post.user.email %> hace <%= time_ago_in_words(post.created_at) %></em>
+            <p class="mt-2"><%= markdown post.description.first(250) %></p>
+            <% if user_signed_in? %>
+              <% if post.user.id == current_user.id %>
+                <div>
+                  <%= link_to "Editar <i class='fas fa-edit'></i>".html_safe, edit_post_path(post) %>
+                  <%= link_to "Eliminar <i class='fas fa-trash'></i>".html_safe, post, method: :delete, data: { confirm: "¿Estás seguro de eliminar este Post?" } %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

@@ -9,4 +9,17 @@ body {
 p {
   font-size: 20px;
   line-height: normal;
+  line-height: 1.5;
+}
+
+.post-container {
+  border: 1px solid #eff0f1;
+}
+
+.post-container .post {
+  padding: 20px;
+}
+
+.footer {
+  height: 50px;
 }
