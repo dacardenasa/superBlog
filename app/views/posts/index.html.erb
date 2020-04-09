@@ -4,7 +4,7 @@
       <% @posts.each do |post| %>
         <h1><%= link_to post.title, post , class: "pointer"%></h1>
         <em class="text-secondary">Publicado por <%= post.user.email %> hace <%= time_ago_in_words(post.created_at) %></em>
-        <p class="mt-2"><%= post.description.first(250) %></p>
+        <p class="mt-2"><%= markdown post.description.first(250) %></p>
         <% if user_signed_in? %>
           <% if post.user.id == current_user.id %>
             <div>
