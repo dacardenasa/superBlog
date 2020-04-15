@@ -28,10 +28,8 @@
   <div class="row justify-content-center mt-3 mb-3">
     <div class="col-md-8 col-md-offset-2">
       <% if user_signed_in? %>
-        <%= form_for @comment do |f| %>
+        <%= form_for @comment, url: comments_path(@post) do |f| %>
           <div class="form-group">
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.hidden_field :post_id, :value => @post.id %>
             <%= f.label :comentario, "Nuevo Comentario", class: "font-weight-bold" %>
             <%= f.text_area :comentario, rows: 3, class: "form-control" %>
           </div>
@@ -39,13 +37,13 @@
         <% end %>
       <% end %>
       <!-- Show errors if submit form has -->
-      <% if @errores %>
+      <% if @user_comment and @user_comment.errors.any? %>
         <div class="alert alert-danger mt-3" role="alert">
           <ul>
-            <% @errores.each do | error | %>
-              <li><%= error %></li>
+            <% @user_comment.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
             <% end %>
-          </ul>  
+            </ul>
         </div>
       <% end %>
     </div>
