@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  
+
   def create
     # Save object post to send action show
     @post = Post.where(id: params[:post_id]).take
